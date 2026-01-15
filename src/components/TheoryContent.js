@@ -1,178 +1,149 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TheoryContent.css';
 
 const TheoryContent = () => {
+  const [expandedSection, setExpandedSection] = useState(null);
+
+  const toggleSection = (index) => {
+    setExpandedSection(expandedSection === index ? null : index);
+  };
+
   const theorySections = [
     {
-      title: '3.2. Tư tưởng Hồ Chí Minh về chủ nghĩa xã hội',
-      subtitle: 'Hồ Chí Minh không đưa ra định nghĩa cố định về CNXH mà tiếp cận từ nhiều phương diện',
-      content: [
+      title: '3.2. Tư tưởng Hồ Chí Minh về CNXH',
+      subtitle: 'Tiếp cận từ nhiều phương diện để nhân dân dễ hiểu',
+      mainPoints: [
         {
-          title: '🔹 Về chính trị',
-          text: 'CNXH là xã hội dân chủ, nhân dân lao động làm chủ, Nhà nước của dân do dân vì dân, dựa trên liên minh công-nông do Đảng Cộng sản lãnh đạo.',
-          image: '🏛️'
+          icon: '🏛️',
+          title: 'Chính trị',
+          summary: 'Nhà nước của dân, do dân, vì dân',
+          details: 'Xã hội dân chủ XHCN: nhân dân lao động làm chủ thực sự. Liên minh công-nông do Đảng Cộng sản lãnh đạo.',
+          example: {
+            title: 'Ví dụ: Dân chủ trực tiếp',
+            content: 'Hội nghị người lao động trong doanh nghiệp nhà nước, quyền giám sát của nhân dân qua Mặt trận Tổ quốc.',
+            image: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=400'
+          }
         },
         {
-          title: '🔹 Về kinh tế',
-          text: 'Nền kinh tế phát triển cao dựa trên lực lượng sản xuất hiện đại và chế độ công hữu về tư liệu sản xuất chủ yếu nhằm xóa bỏ bóc lột.',
-          image: '🏭'
+          icon: '🏭',
+          title: 'Kinh tế',
+          summary: 'Phát triển cao, xóa bỏ bóc lột',
+          details: 'Lực lượng sản xuất hiện đại + Công hữu về tư liệu sản xuất chủ yếu = Xóa bỏ bóc lột, làm theo năng lực - hưởng theo lao động.',
+          example: {
+            title: 'Phân biệt: CNXH vs CNCS',
+            content: 'CNXH: Làm theo năng lực, hưởng theo lao động (xóa giá trị thặng dư). CNCS: Làm theo năng lực, hưởng theo nhu cầu (sản xuất tự động hóa).',
+            image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400'
+          }
         },
         {
-          title: '🔹 Về văn hóa - đạo đức',
-          text: 'Xã hội có trình độ phát triển cao về văn hóa và đạo đức, bảo đảm sự công bằng, hợp lý; con người được tôn trọng.',
-          image: '🎭'
-        },
-        {
-          title: '🎯 Mục tiêu',
-          text: 'Giải phóng nhân dân lao động khỏi áp bức, nghèo nàn, làm cho mọi người có việc làm, được ấm no và hạnh phúc thực sự.',
-          image: '✨'
+          icon: '🎭',
+          title: 'Văn hóa',
+          summary: 'Dân tộc, khoa học, đại chúng',
+          details: 'Trình độ văn hóa, đạo đức cao. Con người được tôn trọng, các dân tộc đoàn kết. Công bằng và hợp lý.',
+          example: {
+            title: 'Thực tiễn VN',
+            content: 'Chính sách ưu tiên giáo dục, y tế. Bảo tồn văn hóa 54 dân tộc trong khi hội nhập quốc tế.',
+            image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400'
+          }
         }
       ]
     },
     {
-      title: '3.2.2. Tính tất yếu khách quan',
-      subtitle: 'Tiến lên CNXH là con đường phát triển tất yếu của lịch sử loài người',
-      content: [
+      title: 'Ví dụ quốc tế: Các nước Bắc Âu',
+      subtitle: 'Mô hình phúc lợi xã hội thành công (lưu ý: vẫn là TBCN)',
+      isExample: true,
+      mainPoints: [
         {
-          title: '📈 Theo quy luật lịch sử',
-          text: 'CNXH là giai đoạn phát triển tất yếu sau chủ nghĩa tư bản theo học thuyết Mác-Lênin.',
-          image: '📚'
+          icon: '🇳🇴',
+          title: 'Na Uy',
+          summary: 'Quỹ hưu trí lớn nhất thế giới',
+          details: 'Sử dụng dầu mỏ xây dựng quỹ chủ quyền 1.4 nghìn tỷ USD. Đầu tư năng lượng tái tạo (thuỷ điện 95%, gió, sóng biển).',
+          example: {
+            title: 'Kết quả',
+            content: 'GDP/người: $89,000. Phúc lợi toàn diện: Giáo dục miễn phí, Y tế công, Trợ cấp thất nghiệp cao. Bất bình đẳng thấp nhất thế giới.',
+            image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400',
+            note: '⚠️ Lưu ý: Đã qua giai đoạn TBCN phát triển, vẫn là chế độ tư hữu nhưng có phúc lợi xã hội cao'
+          }
         },
         {
-          title: '🇻🇳 Đối với Việt Nam',
-          text: 'Sau khi giành độc lập, CNXH là con đường duy nhất giữ vững quyền tự do, xóa bỏ nghèo nàn.',
-          image: '🇻🇳'
+          icon: '🇸🇪',
+          title: 'Thụy Điển',
+          summary: 'Mô hình "Trung dung"',
+          details: 'Kết hợp kinh tế thị trường với phúc lợi xã hội mạnh. Doanh nghiệp tư nhân phát triển + thuế cao để tái phân phối.',
+          example: {
+            title: 'Đặc điểm',
+            content: 'Thuế thu nhập 52-57% để tài trợ: Y tế miễn phí, Giáo dục đại học miễn phí, Nghỉ thai sản 480 ngày có lương.',
+            image: 'https://images.unsplash.com/photo-1509356843151-3e7d96241e11?w=400',
+            note: '📖 Bài học: Đã hoàn thành công nghiệp hóa, tích lũy vốn qua TBCN, sau đó chuyển sang phúc lợi cao'
+          }
+        },
+        {
+          icon: '🔍',
+          title: 'So sánh với VN',
+          summary: 'Tại sao không học theo?',
+          details: 'Bắc Âu đã trải qua giai đoạn TBCN phát triển (200+ năm). VN tiến thẳng từ phong kiến lạc hậu → CNXH (bỏ qua TBCN về chính trị).',
+          example: {
+            title: 'Khác biệt cốt lõi',
+            content: 'Bắc Âu: Tư hữu tư liệu sản xuất, tái phân phối qua thuế. VN: Công hữu chủ yếu, nhà nước giữ vai trò chủ đạo trong kinh tế.',
+            image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400'
+          }
         }
       ]
     },
     {
-      title: '🔄 Động lực xây dựng CNXH',
-      subtitle: 'Hồ Chí Minh đặc biệt nhấn mạnh động lực con người',
-      content: [
+      title: '3.2.3. Thời kỳ quá độ lên CNXH',
+      subtitle: 'Giai đoạn tất yếu, gian khổ và lâu dài',
+      mainPoints: [
         {
-          title: '👥 Nội lực - Con người',
-          text: 'Để xây dựng CNXH, trước hết cần có những con người xã hội chủ nghĩa với ý thức, đạo đức phù hợp.',
-          image: '👨‍👩‍👧‍👦'
+          icon: '🌉',
+          title: 'Khái niệm',
+          summary: 'Cầu nối từ lạc hậu → văn minh',
+          details: 'Thời kỳ quá độ như chiếc cầu dài và gập ghềnh để chuyển hóa hoàn toàn một đất nước nghèo nàn thành xã hội văn minh, hiện đại.',
+          example: {
+            title: 'Đặc điểm VN',
+            content: 'Tiến THẲNG từ nông nghiệp lạc hậu → CNXH, bỏ qua giai đoạn TBCN về chính trị (nhưng học hỏi thành tựu kinh tế, khoa học).',
+            image: 'https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400'
+          }
         },
         {
-          title: '🏢 Nội lực - Các mặt',
-          text: 'Động lực kinh tế - chính trị - văn hóa và sức mạnh khối đại đoàn kết toàn dân.',
-          image: '🤝'
+          icon: '⚔️',
+          title: 'Nhiệm vụ cốt lõi',
+          summary: '3 trụ cột chuyển đổi',
+          details: 'Chính trị: Dân chủ XHCN. Kinh tế: Cải tạo cũ, xây mới. Văn hóa: Tẩy trừ thực dân-phong kiến.',
+          example: {
+            title: 'Thực tiễn',
+            content: 'Cải cách ruộng đất (1953-1957), Cải tạo công thương nghiệp (1958-1960), Xây dựng công nghiệp hóa.',
+            image: 'https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=400'
+          }
         },
         {
-          title: '🌍 Ngoại lực',
-          text: 'Sự đoàn kết, ủng hộ từ phong trào cộng sản và công nhân quốc tế.',
-          image: '🌐'
+          icon: '⚖️',
+          title: 'Nguyên tắc',
+          summary: '4 nguyên tắc vàng',
+          details: '1) Dựa trên Mác-Lênin 2) Giữ vững độc lập dân tộc 3) Học tập sáng tạo, không máy móc 4) Xây dựng đi đôi với chống (tham ô, lãng phí, quan liêu).',
+          example: {
+            title: 'Ý nghĩa "Bỏ qua TBCN"',
+            content: 'Bỏ qua sự thống trị về chính trị, giai cấp tư sản cầm quyền. KHÔNG bỏ qua thành tựu khoa học, công nghệ, quản lý.',
+            image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400'
+          }
         }
       ]
     },
     {
-      title: '3.2.3. Tư tưởng về thời kỳ quá độ',
-      subtitle: 'Giai đoạn tất yếu nhưng vô cùng gian khổ và lâu dài',
-      content: [
+      title: 'Hiệu ứng Cánh Bướm',
+      subtitle: 'Trải nghiệm tương tác để hiểu sâu hơn',
+      isInteractive: true,
+      mainPoints: [
         {
-          title: '📋 Tính chất',
-          text: 'Cuộc cách mạng cải biến sâu sắc nhất, phức tạp, lâu dài, khó khăn và gian khổ nhất.',
-          image: '🔄'
-        },
-        {
-          title: '🌾 Đặc điểm lớn nhất',
-          text: 'Việt Nam tiến thẳng lên CNXH từ nước nông nghiệp lạc hậu, không qua giai đoạn tư bản.',
-          image: '🚜'
-        },
-        {
-          title: '🔀 Tình trạng xã hội',
-          text: 'Đan xen yếu tố cũ (phong kiến, thực dân) và yếu tố mới của CNXH.',
-          image: '⚖️'
-        }
-      ]
-    },
-    {
-      title: '🎯 Nhiệm vụ cốt lõi trong thời kỳ quá độ',
-      subtitle: 'Xây dựng nền tảng cho CNXH thông qua cải biến triệt để',
-      content: [
-        {
-          title: '🏛️ Chính trị',
-          text: 'Xây dựng chế độ dân chủ XHCN, bồi dưỡng năng lực làm chủ của nhân dân.',
-          image: '🏛️'
-        },
-        {
-          title: '🏭 Kinh tế',
-          text: 'Cải tạo nền kinh tế cũ, xây dựng nền kinh tế mới hiện đại.',
-          image: '🏭'
-        },
-        {
-          title: '🎭 Văn hóa - Xã hội',
-          text: 'Tẩy trừ tàn tích thực dân, phong kiến, xây dựng văn hóa mới.',
-          image: '🎭'
-        }
-      ]
-    },
-    {
-      title: '⚖️ Các nguyên tắc xây dựng',
-      subtitle: 'Nguyên tắc khoa học đảm bảo thành công',
-      content: [
-        {
-          title: '📖 Dựa trên chủ nghĩa Mác-Lênin',
-          text: 'Tư tưởng Hồ Chí Minh là sự vận dụng sáng tạo vào điều kiện Việt Nam.',
-          image: '📖'
-        },
-        {
-          title: '🇻🇳 Giữ vững độc lập dân tộc',
-          text: 'Độc lập dân tộc là mục tiêu cao nhất.',
-          image: '🇻🇳'
-        },
-        {
-          title: '🤝 Học tập sáng tạo',
-          text: 'Học kinh nghiệm nước ngoài nhưng vận dụng sáng tạo, không máy móc.',
-          image: '🤝'
-        },
-        {
-          title: '🛡️ Xây dựng đi đôi với chống',
-          text: 'Chống tham ô, lãng phí, quan liêu và tư tưởng phi xã hội chủ nghĩa.',
-          image: '🛡️'
-        }
-      ]
-    },
-    {
-      title: '🌸 Hiệu ứng Cánh Bướm',
-      subtitle: 'Mỗi quyết định tạo ra hiệu ứng lan tỏa',
-      content: [
-        {
-          title: '🔄 Đi qua thời kỳ quá độ',
-          text: 'Con đường kiên trì theo tư tưởng Hồ Chí Minh dẫn đến phát triển bền vững.',
-          image: '🔄'
-        },
-        {
-          title: '⚡ Bỏ qua thời kỳ quá độ',
-          text: 'Kịch bản giả định bỏ qua giai đoạn lịch sử dẫn đến nhiều hệ lụy.',
-          image: '⚡'
-        },
-        {
-          title: '🎲 Trải nghiệm tương tác',
-          text: 'Game butterfly effect giúp hiểu trực tiếp các lựa chọn lịch sử.',
-          image: '🎲'
-        }
-      ]
-    },
-    {
-      title: '📚 Ví dụ thực tế: Bắc Âu',
-      subtitle: 'Mô hình xã hội phúc lợi thành công',
-      content: [
-        {
-          title: '🇳🇴 Na Uy',
-          text: 'Sử dụng dầu mỏ, năng lượng tái tạo để xây dựng hệ thống phúc lợi toàn diện.',
-          image: '🇳🇴'
-        },
-        {
-          title: '🇸🇪 Thụy Điển',
-          text: 'Mức sống cao, bất bình đẳng thấp, phúc lợi xã hội toàn diện.',
-          image: '🇸🇪'
-        },
-        {
-          title: '📖 Bài học',
-          text: 'Học hỏi thành tựu văn minh mà không bỏ qua thời kỳ lịch sử.',
-          image: '📖'
+          icon: '🎮',
+          title: 'Game: What If?',
+          summary: 'Nếu VN không đi qua thời kỳ quá độ?',
+          details: 'Trò chơi mô phỏng các kịch bản lịch sử giả định để hiểu rõ tầm quan trọng của con đường quá độ lên CNXH.',
+          example: {
+            title: 'Cách chơi',
+            content: 'Chuyển sang tab "Game" để trải nghiệm cây quyết định tương tác. Mỗi lựa chọn tạo ra hệ quả khác nhau.',
+            image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400'
+          }
         }
       ]
     }
@@ -181,69 +152,137 @@ const TheoryContent = () => {
   return (
     <div className="theory-content">
       <div className="theory-header">
-        <h1>📚 Nội dung Lý thuyết</h1>
-        <p>Tư tưởng Hồ Chí Minh về CNXH và thời kỳ quá độ</p>
+        <h1>Tư tưởng Hồ Chí Minh về CNXH và thời kỳ quá độ</h1>
+        <p className="header-subtitle">Click vào từng mục để xem chi tiết</p>
       </div>
 
       <div className="theory-sections">
         {theorySections.map((section, sectionIndex) => (
-          <div key={sectionIndex} className="theory-section">
+          <div 
+            key={sectionIndex} 
+            className={`theory-section ${section.isExample ? 'example-section' : ''} ${section.isInteractive ? 'interactive-section' : ''}`}
+          >
             <div className="section-header">
               <h2>{section.title}</h2>
               <p className="section-subtitle">{section.subtitle}</p>
             </div>
 
             <div className="section-content">
-              {section.content.map((item, itemIndex) => (
-                <div key={itemIndex} className="content-card">
-                  <div className="card-icon">{item.image}</div>
-                  <div className="card-content">
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
+              {section.mainPoints.map((point, pointIndex) => {
+                const isExpanded = expandedSection === `${sectionIndex}-${pointIndex}`;
+                return (
+                  <div key={pointIndex} className="content-card">
+                    <div 
+                      className="card-header"
+                      onClick={() => toggleSection(`${sectionIndex}-${pointIndex}`)}
+                    >
+                      <div className="card-icon">{point.icon}</div>
+                      <div className="card-title">
+                        <h3>{point.title}</h3>
+                        <p className="card-summary">{point.summary}</p>
+                      </div>
+                      <div className={`expand-arrow ${isExpanded ? 'expanded' : ''}`}>
+                        ▼
+                      </div>
+                    </div>
+                    
+                    {isExpanded && (
+                      <div className="card-details">
+                        <p className="details-text">{point.details}</p>
+                        
+                        {point.example && (
+                          <div className="example-box">
+                            <h4>{point.example.title}</h4>
+                            <div className="example-content">
+                              {point.example.image && (
+                                <img 
+                                  src={point.example.image} 
+                                  alt={point.example.title}
+                                  className="example-image"
+                                />
+                              )}
+                              <p>{point.example.content}</p>
+                              {point.example.note && (
+                                <div className="example-note">
+                                  {point.example.note}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Academic Integrity Section */}
-      <div className="academic-section">
-        <h2>🎓 Academic Integrity & AI Usage</h2>
-        <div className="academic-grid">
-          <div className="academic-card">
-            <div className="academic-icon">🤖</div>
-            <h3>AI Support</h3>
-            <p>Sử dụng AI để tối ưu hóa cấu trúc nội dung, tạo ví dụ minh họa, hỗ trợ nghiên cứu tài liệu.</p>
+      {/* References Section */}
+      <div className="references-section">
+        <h2>📖 Tài liệu tham khảo</h2>
+        <div className="references-grid">
+          <div className="reference-card">
+            <div className="ref-icon">📚</div>
+            <h3>Nguồn chính thống</h3>
+            <ul>
+              <li>Hồ Chí Minh toàn tập (NXB Chính trị Quốc gia, 2011)</li>
+              <li>Văn kiện Đại hội Đảng các thời kỳ</li>
+              <li>Giáo trình Tư tưởng Hồ Chí Minh (Bộ GD&ĐT)</li>
+            </ul>
           </div>
-          <div className="academic-card">
-            <div className="academic-icon">📚</div>
-            <h3>Nguồn gốc</h3>
-            <p>Tất cả nội dung được kiểm chứng từ: Văn kiện Đảng, tác phẩm Hồ Chí Minh, nghiên cứu học thuật.</p>
+          <div className="reference-card">
+            <div className="ref-icon">🌍</div>
+            <h3>Ví dụ quốc tế</h3>
+            <ul>
+              <li>Norway Government Pension Fund Global</li>
+              <li>OECD Data on Nordic Countries</li>
+              <li>World Bank Development Indicators</li>
+            </ul>
           </div>
-          <div className="academic-card">
-            <div className="academic-icon">✨</div>
-            <h3>Sáng tạo ứng dụng</h3>
-            <p>Kết hợp lý thuyết với công nghệ tương tác để giáo dục hiệu quả về tư tưởng Hồ Chí Minh.</p>
-          </div>
-          <div className="academic-card">
-            <div className="academic-icon">🎯</div>
-            <h3>Ứng dụng thực tiễn</h3>
-            <p>Kết nối lý thuyết với các vấn đề đương đại như bất bình đẳng xã hội, phát triển bền vững.</p>
+          <div className="reference-card">
+            <div className="ref-icon">📊</div>
+            <h3>Dữ liệu thực tiễn</h3>
+            <ul>
+              <li>Tổng cục Thống kê Việt Nam</li>
+              <li>Báo cáo phát triển con người (UNDP)</li>
+              <li>World Inequality Database</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      {/* Floating butterflies */}
-      <div className="theory-butterflies">
-        {[...Array(8)].map((_, i) => (
-          <div key={i} className="butterfly" style={{
-            left: `${10 + i * 10}%`,
-            animationDelay: `${i * 0.5}s`,
-            animationDuration: `${10 + i * 2}s`
-          }}>🦋</div>
-        ))}
+      {/* Connection to Current Issues */}
+      <div className="current-issues-section">
+        <h2>🔗 Liên hệ thực tiễn đương đại</h2>
+        <div className="issues-grid">
+          <div className="issue-card">
+            <div className="issue-icon">💰</div>
+            <h3>Bất bình đẳng gia tăng</h3>
+            <p>Khoảng cách giàu nghèo tăng lên toàn cầu. Mỹ: 1% giàu nhất sở hữu 32% tài sản quốc gia.</p>
+            <p className="issue-link">→ Liên hệ: Mục tiêu xóa bỏ bóc lột, công bằng xã hội của CNXH</p>
+          </div>
+          <div className="issue-card">
+            <div className="issue-icon">🔫</div>
+            <h3>Vấn đề súng đạn (Mỹ)</h3>
+            <p>Hàng năm 40,000+ người chết do súng. Tự do cá nhân vs an ninh cộng đồng?</p>
+            <p className="issue-link">→ Liên hệ: Vai trò nhà nước bảo vệ lợi ích tập thể, không phải tư bản cá nhân</p>
+          </div>
+          <div className="issue-card">
+            <div className="issue-icon">🌡️</div>
+            <h3>Biến đổi khí hậu</h3>
+            <p>Lợi nhuận tư nhân vs trách nhiệm môi trường. Các tập đoàn dầu mỏ kìm hãm năng lượng sạch.</p>
+            <p className="issue-link">→ Liên hệ: Công hữu tư liệu sản xuất để ưu tiên lợi ích chung, không chỉ lợi nhuận</p>
+          </div>
+          <div className="issue-card">
+            <div className="issue-icon">🏥</div>
+            <h3>Khủng hoảng y tế</h3>
+            <p>Mỹ chi 18% GDP cho y tế nhưng 30 triệu người không có bảo hiểm. Thuốc insulin giá cao gấp 10 lần nước khác.</p>
+            <p className="issue-link">→ Liên hệ: Y tế công miễn phí trong CNXH, con người quan trọng hơn lợi nhuận</p>
+          </div>
+        </div>
       </div>
     </div>
   );
