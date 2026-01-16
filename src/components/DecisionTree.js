@@ -101,6 +101,28 @@ const DecisionTree = () => {
           {currentNode.description && (
             <p className="node-description">{currentNode.description}</p>
           )}
+
+          {/* Theory Section */}
+          {currentNode.theory && (
+            <div className="theory-section">
+              <h3 className="theory-title">📚 Lý thuyết liên quan:</h3>
+              {typeof currentNode.theory === 'string' ? (
+                <div className="theory-content">
+                  <p>{currentNode.theory}</p>
+                </div>
+              ) : (
+                <div className="theory-content">
+                  <h4>{currentNode.theory.title}</h4>
+                  {currentNode.theory.sections && currentNode.theory.sections.map((section, index) => (
+                    <div key={index} className="theory-item">
+                      <h5>{section.title}</h5>
+                      <p>{section.content}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Result Screen */}
